@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		三个环境
+			node
+			webpack
+			vue
+		
+		
+			dependencies:插件 依赖的意思
+				下载到线上环境
+				npm install vue-router --save/-S
+			
+			devDependencies:开发插件 
+				下载本地开发时需要的插件
+				npm install vue-router --save-dev/-D	
+			 
+			
+			请求数据的vue插件
+				cnpm install axios -S/--save
+			
+			安装sass插件，可以用sass进行编写css样式
+				cnpm install node-sass --save-dev
+				cnpm install sass-loader --save-dev
+			
+			
+			build：打包压缩的文件配置
+			config:webpack中服务器端口，主文件之类的配置
+			node_modules:项目依赖插件，不要随便打开
+			src：前端人员主要进行开发的文件夹
+			static：静态文件存放的文件夹
+			
+			src
+				assets：存放图片的文件夹
+				components：写公共组件的文件夹
+				router：专门写路由跳转的文件夹
+				views:专门写页面组建的文件夹
+				App.vue:唯一的入口.vue文件
+				main.js：唯一的入口js文件
+				index.html :唯一的页面
+				
+			vue-router:
+				router-view:显示内容容器标签
+				router-link:路由跳转标签 相当于a标签进行描点跳转
+					有一个to属性 且有两种跳转方式 以字符串进行跳转无需加：，
+					<router-link to='/index'>hhh</router-link>
+					以对象进行跳转需要在to上面加：
+					<router-link :to="{path:'/index'}">hhh</router-link>
+					整个路由中/就只有一个 剩下的都是/路径
+				凡是涉及到页面的跳转，必须要在router文件夹下设置路由路径
+				还有一种跳转
+				(1)this.$router.push({
+					path:'/index',
+					name:'index'
+				})
+				
+				(2)this.$router.replace('/index')
+					直接进行页面跳转 相当于重定向 ，破坏了浏览器history历史记录
+				(3)this.$router.push('/index')
+				用法：<div @click='goIndex'>韩晶</div>
+					 data(){
+					  	return{
+					  		
+					  	}
+					  },
+					  methods:{
+					  	goIndex(){
+					  		（1）this.$router.push({
+					  				path:'/index',
+									name:'index'
+									
+							或者（2）this.$router.replace('/index')
+							
+							(3)this.$router.push('/index')
+							
+							
+					  		})
+					  	}
+					  }
+			let等于js中的var		  
+			var v= function(){}跟 const v = b =>{}一样 里面的b就是小括号里面的b，有一个形参b可以不加括号 两个就必须加括号			  
+					  
+			指令
+				v-if:判断条件 控制显示或隐藏，隐藏时不加载文档流 性能较好
+				v-show：控制显示隐藏， 原理是display：none；加载文档流，应用更广泛
+				v-model：用于输入框 文本域等标签内部 属于数据双向绑定的输入值
+				v-else：用于复杂的条件判断语句，一定跟在v-if后面 配合使用
+					没有v-if，就没有v-else，
+				v-cloak:解决页面括号闪烁问题，原理是display:none;
+					vue1.x里面是加在body。vue2.x是加在id='app'标签上
+				v-text：绑定文本内容,用于标签内部
+				v-bind：绑定css样式，以及自定义属性。图片等一系列东西 绑定样式不常用仅做了解
+				require('绝对路径'):就是拿依赖环境[路径]
+				v-once：绑定事件属性 只执行一次
+				v-for:循环数据 且循环dom结构,循环自身所在的元素
+				v-html：绑定dom元素的内容 操作dom的内容。不长用
+			vue生命周期：
+				vue生命周期都是自执行函数 不用咱们去调用 而是有生命的函数 ，依次执行
+			组件之间的引用不需要路由	
+			beforeCreate：组件创建前
+			created：组件创建后
+			beforeMount：组件挂载前
+			mounted： 组件挂载中
+			beforeUpdate：组件更新前
+			updated：组件更新后
+			beforeDestroy：组件销毁前
+			destroyed：组件销毁后
+			
+		常用的生命周期
+			beforeMount：组件挂载前
+			mounted： 组件挂载中
+			beforeUpdate：组件更新前
+			updated：组件更新后
+		路由
+			mode:'hash',
+			hash  就是锚点跳转的标记  /#/index/admin 优点：只是做了标签跳转 不会向后台发送请求，相当于tab切换
+			history:就是浏览器的正规url跳转
+			mode:'history'
+			几级嵌套路由 就在页面嵌套几个for循环
+			除了绑定事件v-on：绑定事件简称为@ 其余任何只有：的属性前面都省略了v-bind
+		redirect:'index/page1' 页面默认显示那个路由 redirect 如果要想显示三级路由 就加在二级路由里面 要想显示四级路由就加在三级路由里面 就是想显示子集路由就加在父级路由里面 
+		
+	</body>
+</html>
+
